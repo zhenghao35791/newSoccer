@@ -8,12 +8,12 @@
 	<string>CCC1DEA4-B3F2-481F-B1CB-BCC25020C365</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0173EE5D2847F483CDE849A7D3984B3000CA408E</key>
+		<key>6A35BE3EAA77B82DDD784253D8B0E88A0B63FF0D</key>
 		<string>https://github.com/zhenghao35791/Soccer.git</string>
 	</dict>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0173EE5D2847F483CDE849A7D3984B3000CA408E</key>
+		<key>6A35BE3EAA77B82DDD784253D8B0E88A0B63FF0D</key>
 		<string>Soccer</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -21,14 +21,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0173EE5D2847F483CDE849A7D3984B3000CA408E</string>
+	<string>6A35BE3EAA77B82DDD784253D8B0E88A0B63FF0D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0173EE5D2847F483CDE849A7D3984B3000CA408E</string>
+			<string>6A35BE3EAA77B82DDD784253D8B0E88A0B63FF0D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Soccer</string>
 		</dict>

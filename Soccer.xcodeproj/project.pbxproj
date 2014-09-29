@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1802F53019CB4E0A0070B54C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1802F52F19CB4E0A0070B54C /* background.png */; };
 		18178AB119C9A3510061831B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18178AB019C9A3510061831B /* Foundation.framework */; };
 		18178AB319C9A3510061831B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18178AB219C9A3510061831B /* CoreGraphics.framework */; };
 		18178AB519C9A3510061831B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18178AB419C9A3510061831B /* UIKit.framework */; };
@@ -30,6 +29,7 @@
 		181CA47C19CA33480009BE1F /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 181CA47819CA33480009BE1F /* player1.png */; };
 		181CA47D19CA33480009BE1F /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = 181CA47919CA33480009BE1F /* player2.png */; };
 		188878EB19CB2A960051614F /* soccer.png in Resources */ = {isa = PBXBuildFile; fileRef = 188878EA19CB2A960051614F /* soccer.png */; };
+		18B88AC219D9EF9E005578CE /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18B88AC119D9EF9E005578CE /* background.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1802F52F19CB4E0A0070B54C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		18178AAD19C9A3510061831B /* Soccer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soccer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18178AB019C9A3510061831B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18178AB219C9A3510061831B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,6 +72,7 @@
 		181CA47819CA33480009BE1F /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player1.png; sourceTree = "<group>"; };
 		181CA47919CA33480009BE1F /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
 		188878EA19CB2A960051614F /* soccer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer.png; sourceTree = "<group>"; };
+		18B88AC119D9EF9E005578CE /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +141,9 @@
 				18178AC419C9A3510061831B /* Main.storyboard */,
 				18178AC719C9A3510061831B /* ViewController.h */,
 				18178AC819C9A3510061831B /* ViewController.m */,
+				18B88AC119D9EF9E005578CE /* background.jpeg */,
 				18178ACA19C9A3510061831B /* MyScene.h */,
 				18178ACB19C9A3510061831B /* MyScene.m */,
-				1802F52F19CB4E0A0070B54C /* background.png */,
 				181CA47819CA33480009BE1F /* player1.png */,
 				181CA47919CA33480009BE1F /* player2.png */,
 				188878EA19CB2A960051614F /* soccer.png */,
@@ -261,13 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18178ABD19C9A3510061831B /* InfoPlist.strings in Resources */,
+				18B88AC219D9EF9E005578CE /* background.jpeg in Resources */,
 				18178AF719C9A6C70061831B /* PROPELLER 2.png in Resources */,
 				18178AD019C9A3510061831B /* Images.xcassets in Resources */,
 				181CA47C19CA33480009BE1F /* player1.png in Resources */,
 				181CA47D19CA33480009BE1F /* player2.png in Resources */,
 				188878EB19CB2A960051614F /* soccer.png in Resources */,
 				18178AF619C9A6C70061831B /* PROPELLER 1.png in Resources */,
-				1802F53019CB4E0A0070B54C /* background.png in Resources */,
 				18178AC619C9A3510061831B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

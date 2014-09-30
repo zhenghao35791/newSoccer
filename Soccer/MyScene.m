@@ -210,10 +210,10 @@ float degToRad(float degree) {
     {
         SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;
         soccer1.physicsBody.friction = 1000;//摩擦
-        soccer1.physicsBody.velocity = self.physicsBody.velocity;//速度
+        soccer1.physicsBody.velocity = firstBody.velocity;//速度
         //CGPoint newPosition = CGPointMake(_soccer.position.x + speed, _soccer.position.y+ speed);
        // [soccer1 runAction:[SKAction moveTo:newPosition duration:1]];
-        NSLog(@"asd");
+        NSLog(@"soccer speed.y: %f",soccer1.physicsBody.velocity.dy);
     }
 }
 

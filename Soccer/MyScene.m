@@ -11,8 +11,7 @@
 @implementation MyScene
     static NSString * const Player1Name = @"Player1";//用这个字符串来标示可移动的node
     static NSString * const Player2Name = @"Player2";
-    static NSInteger speed = 115;
-
+    //int speed = 115;
 
 
 - (id)initWithSize:(CGSize)size {
@@ -32,12 +31,10 @@
         [_background setAnchorPoint:CGPointZero];
         [self addChild:_background ];
         
-        
         //adding soccer
         _soccer = [SKSpriteNode spriteNodeWithImageNamed:@"soccer"];
         _soccer.position = CGPointMake(screenWidth/2+15, _soccer.size.height/2+380);
         [self addChild:_soccer];
-        
         
         //loading players
         _player1 = [SKSpriteNode spriteNodeWithImageNamed:@"player1"];
@@ -49,32 +46,27 @@
         [self addChild:_player1];
         [self addChild:_player2];
         
-        
-        
-        
         // contact area of soccer
-        _soccer.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_soccer.size];
+        _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius: _soccer.frame.size.width/2];
         _soccer.physicsBody.dynamic = NO;
         _soccer.physicsBody.categoryBitMask = soccerCategory;//which category it belogs to
-        _soccer.physicsBody.contactTestBitMask = playerCategory;//which category it contact with
-        _soccer.physicsBody.collisionBitMask = playerCategory;
+        _soccer.physicsBody.contactTestBitMask = player1Category|player2Category;//which category it contact with
+        _soccer.physicsBody.collisionBitMask = player1Category|player2Category;
         _soccer.physicsBody.velocity = self.physicsBody.velocity;
         
         // contact area of player1
         _player1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player1.size];
         //_player1.physicsBody.dynamic = NO;
-        _player1.physicsBody.categoryBitMask = playerCategory;//which category it belogs to
+        _player1.physicsBody.categoryBitMask = player1Category;//which category it belogs to
         _player1.physicsBody.contactTestBitMask = soccerCategory;//which category it contact with
         _player1.physicsBody.collisionBitMask = soccerCategory;
-        player1Direction = 0;
         
         // contact area of player2
         _player2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player2.size];
         //_player2.physicsBody.dynamic = NO; only can detect collision without this line
-        _player2.physicsBody.categoryBitMask = playerCategory;//which category it belogs to
+        _player2.physicsBody.categoryBitMask = player2Category;//which category it belogs to
         _player2.physicsBody.contactTestBitMask = soccerCategory;//which category it contact with
         _player2.physicsBody.collisionBitMask = soccerCategory;
-        player2Direction = 0;
         
         //adding propeller
         _propeller = [SKSpriteNode spriteNodeWithImageNamed:@"PROPELLER 1"];
@@ -86,10 +78,10 @@
         SKAction *spinforever = [SKAction repeatActionForever:spin];
         [_propeller runAction:spinforever];//runaction
         [self addChild:_propeller];
+       // startGameLabel = childNodeWithName("startGameLabel") as SKLabelNode
     }
     return self;
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
@@ -111,7 +103,6 @@
 			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
 		}
 	}
-    
 }
 
 float degToRad(float degree) {
@@ -131,11 +122,15 @@ float degToRad(float degree) {
     CGPoint position = [_selectedNode position];
     if([[_selectedNode name] isEqualToString:Player1Name]) {
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
-        ///player1Direction = (translation.x,translation.y);
+        _player1.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
+        NSLog(@"translation.x: %f",translation.x);
+        NSLog(@"speed.x: %f",_player1.physicsBody.velocity.dx);
     }
     if([[_selectedNode name] isEqualToString:Player2Name]) {
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
-       // player2Direction = (translation.x,translation.y);
+        _player2.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
+        NSLog(@"translation.x: %f",translation.x);
+        NSLog(@"speed.x: %f",_player2.physicsBody.velocity.dx);
     }
 }
 
@@ -163,9 +158,39 @@ float degToRad(float degree) {
     _player2.position = newPosition4;
     _soccer.position = newPosition5;
 }
+/*
+ -(void)update:(CFTimeInterval)currentTime {
+    SKNode* ball = [self childNodeWithName: ballCategoryName];
+    static int maxSpeed = 1000;
+    float speed = sqrt(ball.physicsBody.velocity.dx*ball.physicsBody.velocity.dx + ball.physicsBody.velocity.dy * ball.physicsBody.velocity.dy);
+    if (speed &gt; maxSpeed) {
+        ball.physicsBody.linearDamping = 0.4f;
+    } else {
+        ball.physicsBody.linearDamping = 0.0f;
+    }
+}
+ */
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+//    int maskCode = contact.bodyA.contactTestBitMask|contact.bodyB.contactTestBitMask;
+//    
+//    if (maskCode == MASK_EDGE|MASK_FLAG) {
+//        
+//        if contact.bodyA.contactTestBitMask==MASK_FLAG{
+//            contact.bodyA.node.removeFromParent()
+//        }
+//        if contact.bodyB.contactTestBitMask==MASK_FLAG{
+//            contact.bodyB.node.removeFromParent()
+//        }
+//    }else if maskCode == MASK_EDGE|MASK_BALL{
+//        //            print("GameOver")
+//        self.view.presentScene(GameOverScene(size: self.frame.size))
+//    }
+    
+    
+    
+    
     // 1
     NSLog(@"collison");
     SKPhysicsBody *firstBody, *secondBody;
@@ -184,13 +209,11 @@ float degToRad(float degree) {
     if ((firstBody.categoryBitMask!=soccerCategory))//firstbody isnt soccer
     {
         SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;
-        CGPoint newPosition = CGPointMake(_soccer.position.x + speed, _soccer.position.y+ speed);
-        soccer1.physicsBody.friction = 100;//摩擦
+        soccer1.physicsBody.friction = 1000;//摩擦
         soccer1.physicsBody.velocity = self.physicsBody.velocity;//速度
-
-        //soccer1.physicsBod
-        [soccer1 runAction:[SKAction moveTo:newPosition duration:1]];
-        NSLog(@"ASDASDAS2");
+        //CGPoint newPosition = CGPointMake(_soccer.position.x + speed, _soccer.position.y+ speed);
+       // [soccer1 runAction:[SKAction moveTo:newPosition duration:1]];
+        NSLog(@"asd");
     }
 }
 

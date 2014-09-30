@@ -11,8 +11,9 @@
 //static const uint32_t soccerCategory = 0x1 << 0;
 //static const uint32_t playerCategory = 0x1 << 1;
 
-static const uint8_t playerCategory = 1;
-static const uint8_t soccerCategory = 2;
+static const uint8_t player1Category = 1;
+static const uint8_t player2Category = 2;
+static const uint8_t soccerCategory = 3;
 
 @interface MyScene : SKScene<UIAccelerometerDelegate, SKPhysicsContactDelegate>{
     CGRect screenRect;

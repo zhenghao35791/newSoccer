@@ -99,8 +99,8 @@
 		_selectedNode = touchedNode;
 		//3
 		if([[touchedNode name] isEqualToString:Player1Name]||[[touchedNode name] isEqualToString:Player2Name]) {
-			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
-			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
+//			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
+//			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
 		}
 	}
 }
@@ -148,6 +148,18 @@ float degToRad(float degree) {
     CGPoint newPosition5 = CGPointMake(_soccer.position.x, _soccer.position.y);
     currentMaxX = screenWidth - _player1.size.width/2;
     currentMaxY = screenHeight - _player1.size.height/2;
+    if (newPosition3.x>currentMaxX) {
+        newPosition3.x = currentMaxX;
+    }
+    if (newPosition3.y>currentMaxY) {
+        newPosition3.y = currentMaxY;
+    }
+    if (newPosition4.x>currentMaxX) {
+        newPosition4.x = currentMaxX;
+    }
+    if (newPosition4.y>currentMaxY) {
+        newPosition4.y = currentMaxY;
+    }
     if (newPosition5.x>currentMaxX) {
         newPosition5.x = currentMaxX;
     }
@@ -157,19 +169,16 @@ float degToRad(float degree) {
     _player1.position = newPosition3;
     _player2.position = newPosition4;
     _soccer.position = newPosition5;
-}
-/*
- -(void)update:(CFTimeInterval)currentTime {
-    SKNode* ball = [self childNodeWithName: ballCategoryName];
-    static int maxSpeed = 1000;
-    float speed = sqrt(ball.physicsBody.velocity.dx*ball.physicsBody.velocity.dx + ball.physicsBody.velocity.dy * ball.physicsBody.velocity.dy);
-    if (speed &gt; maxSpeed) {
-        ball.physicsBody.linearDamping = 0.4f;
+    
+    static int maxSpeed = 10;
+    float speed = sqrt(_soccer.physicsBody.velocity.dx*_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
+    if (speed > maxSpeed) {
+        _soccer.physicsBody.linearDamping = 0.4f;
     } else {
-        ball.physicsBody.linearDamping = 0.0f;
+        _soccer.physicsBody.linearDamping = 0.0f;
     }
 }
- */
+
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
@@ -190,7 +199,6 @@ float degToRad(float degree) {
     
     
     
-    
     // 1
     NSLog(@"collison");
     SKPhysicsBody *firstBody, *secondBody;
@@ -208,11 +216,14 @@ float degToRad(float degree) {
     NSLog(@"%d",firstBody.categoryBitMask);
     if ((firstBody.categoryBitMask!=soccerCategory))//firstbody isnt soccer
     {
-        SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;
-        soccer1.physicsBody.friction = 1000;//摩擦
+        SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;//soccer1??
+        //soccer1.physicsBody.friction = 1000;//摩擦
         soccer1.physicsBody.velocity = firstBody.velocity;//速度
-        //CGPoint newPosition = CGPointMake(_soccer.position.x + speed, _soccer.position.y+ speed);
-       // [soccer1 runAction:[SKAction moveTo:newPosition duration:1]];
+        
+        soccer1.physicsBody.velocity = CGVectorMake(soccer1.physicsBody.velocity.dx*10,soccer1.physicsBody.velocity.dy*10);
+        
+        CGPoint newPosition = CGPointMake(_soccer.position.x + soccer1.physicsBody.velocity.dx, _soccer.position.y + soccer1.physicsBody.velocity.dy);
+      [_soccer runAction:[SKAction moveTo:newPosition duration:1]];
         NSLog(@"soccer speed.y: %f",soccer1.physicsBody.velocity.dy);
     }
 }

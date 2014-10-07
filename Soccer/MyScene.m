@@ -99,8 +99,8 @@
 		_selectedNode = touchedNode;
 		//3
 		if([[touchedNode name] isEqualToString:Player1Name]||[[touchedNode name] isEqualToString:Player2Name]) {
-//			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
-//			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
+			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
+			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
 		}
 	}
 }
@@ -143,40 +143,61 @@ float degToRad(float degree) {
 }
 
 - (void)update:(NSTimeInterval)currentTime{
-    CGPoint newPosition3 = CGPointMake(_player1.position.x, _player1.position.y);
-    CGPoint newPosition4 = CGPointMake(_player2.position.x, _player2.position.y);
-    CGPoint newPosition5 = CGPointMake(_soccer.position.x, _soccer.position.y);
+    CGPoint newPositionPlayer1 = CGPointMake(_player1.position.x, _player1.position.y);
+    CGPoint newPositionPlayer2 = CGPointMake(_player2.position.x, _player2.position.y);
+    CGPoint newPositionSoccer = CGPointMake(_soccer.position.x, _soccer.position.y);
     currentMaxX = screenWidth - _player1.size.width/2;
     currentMaxY = screenHeight - _player1.size.height/2;
-    if (newPosition3.x>currentMaxX) {
-        newPosition3.x = currentMaxX;
+    if (newPositionPlayer1.x > currentMaxX) {
+        newPositionPlayer1.x = currentMaxX;
     }
-    if (newPosition3.y>currentMaxY) {
-        newPosition3.y = currentMaxY;
+    if (newPositionPlayer1.y > currentMaxY) {
+        newPositionPlayer1.y = currentMaxY;
     }
-    if (newPosition4.x>currentMaxX) {
-        newPosition4.x = currentMaxX;
+    if (newPositionPlayer2.x > currentMaxX) {
+        newPositionPlayer2.x = currentMaxX;
     }
-    if (newPosition4.y>currentMaxY) {
-        newPosition4.y = currentMaxY;
+    if (newPositionPlayer2.y > currentMaxY) {
+        newPositionPlayer2.y = currentMaxY;
     }
-    if (newPosition5.x>currentMaxX) {
-        newPosition5.x = currentMaxX;
+    if (newPositionSoccer.x > currentMaxX) {
+        newPositionSoccer.x = currentMaxX;
     }
-    if (newPosition5.y>currentMaxY) {
-        newPosition5.y = currentMaxY;
+    if (newPositionSoccer.y > currentMaxY) {
+        newPositionSoccer.y = currentMaxY;
     }
-    _player1.position = newPosition3;
-    _player2.position = newPosition4;
-    _soccer.position = newPosition5;
     
-    static int maxSpeed = 10;
-    float speed = sqrt(_soccer.physicsBody.velocity.dx*_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
-    if (speed > maxSpeed) {
-        _soccer.physicsBody.linearDamping = 0.4f;
-    } else {
-        _soccer.physicsBody.linearDamping = 0.0f;
+    if (newPositionPlayer1.x < _player1.size.width) {
+        newPositionPlayer1.x = _player1.size.width;
     }
+    if (newPositionPlayer1.y < _player1.size.height) {
+        newPositionPlayer1.y = _player1.size.height;
+    }
+    if (newPositionPlayer2.x < _player2.size.width) {
+        newPositionPlayer2.x = _player2.size.width;
+    }
+    if (newPositionPlayer2.y < _player2.size.height) {
+        newPositionPlayer2.y = _player2.size.height;
+    }
+    if (newPositionSoccer.x < _soccer.size.width) {
+        newPositionSoccer.x = _soccer.size.width;
+    }
+    if (newPositionSoccer.y < _soccer.size.height) {
+        newPositionSoccer.y = _soccer.size.height;
+    }
+    
+    
+    _player1.position = newPositionPlayer1;
+    _player2.position = newPositionPlayer2;
+    _soccer.position = newPositionSoccer;
+    
+//    static int maxSpeed = 10;
+//    float speed = sqrt(_soccer.physicsBody.velocity.dx*_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
+//    if (speed > maxSpeed) {
+//        _soccer.physicsBody.linearDamping = 0.4f;
+//    } else {
+//        _soccer.physicsBody.linearDamping = 0.0f;
+//    }
 }
 
 
@@ -223,6 +244,27 @@ float degToRad(float degree) {
         soccer1.physicsBody.velocity = CGVectorMake(soccer1.physicsBody.velocity.dx*10,soccer1.physicsBody.velocity.dy*10);
         
         CGPoint newPosition = CGPointMake(_soccer.position.x + soccer1.physicsBody.velocity.dx, _soccer.position.y + soccer1.physicsBody.velocity.dy);
+        if (newPosition.x > screenWidth - _soccer.size.width) {
+            newPosition.x = screenWidth - _soccer.size.width;
+        }
+        if (newPosition.y > screenHeight - _soccer.size.height) {
+            newPosition.y = screenHeight - _soccer.size.height;
+        }
+        if (newPosition.x < _soccer.size.width) {
+            newPosition.x = _soccer.size.width;
+        }
+        if (newPosition.y < _soccer.size.height) {
+            newPosition.y = _soccer.size.height;
+        }
+        if (newPosition.x > screenWidth-_soccer.size.width) {
+            newPosition.x = screenWidth-_soccer.size.width;
+        }
+        if (newPosition.y > screenHeight - _soccer.size.height) {
+            newPosition.y = screenHeight - _soccer.size.height;
+        }
+        
+        
+        
       [_soccer runAction:[SKAction moveTo:newPosition duration:1]];
         NSLog(@"soccer speed.y: %f",soccer1.physicsBody.velocity.dy);
     }

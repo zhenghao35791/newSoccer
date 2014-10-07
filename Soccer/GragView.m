@@ -53,7 +53,7 @@
     
     
     /* 限制用户不可将视图托出屏幕 */
-    float halfx = CGRectGetMidX(self.bounds);
+    float halfx =  CGRectGetMidX(self.bounds);
     //x坐标左边界
     newcenter.x = MAX(halfx, newcenter.x);
     //x坐标右边界

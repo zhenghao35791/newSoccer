@@ -11,6 +11,5 @@
 
 @interface ViewController : UIViewController
 
-- (IBAction)go2Result:(id)sender;
 
 @end

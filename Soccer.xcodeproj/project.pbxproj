@@ -82,6 +82,7 @@
 		6BE417EE19E3D7AF0013FEE2 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */; };
 		6BE417EF19E3D7AF0013FEE2 /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */; };
 		6BE417F119E3E0390013FEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417F019E3E0390013FEE2 /* Main.storyboard */; };
+		6BE417F319E3EBF60013FEE2 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417F219E3EBF60013FEE2 /* background1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController1.xib; sourceTree = "<group>"; };
 		6BE417F019E3E0390013FEE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../Dropbox/comp90018/Main.storyboard; sourceTree = "<group>"; };
+		6BE417F219E3EBF60013FEE2 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +351,7 @@
 		6BE4179219E3D1670013FEE2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6BE417F219E3EBF60013FEE2 /* background1.png */,
 				6BE4179319E3D1790013FEE2 /* logo_p1.png */,
 				6BE4179419E3D1790013FEE2 /* logo_e.png */,
 				6BE4179519E3D1790013FEE2 /* Button.png */,
@@ -505,6 +508,7 @@
 				6BE417D519E3D1790013FEE2 /* Icon@2x.png in Resources */,
 				6BE417BD19E3D1790013FEE2 /* logo_e.png in Resources */,
 				6BE417E419E3D1790013FEE2 /* TextField@2x.png in Resources */,
+				6BE417F319E3EBF60013FEE2 /* background1.png in Resources */,
 				6BE417D919E3D1790013FEE2 /* Logo Joker.png in Resources */,
 				6BE417BE19E3D1790013FEE2 /* Button.png in Resources */,
 				6BE417C419E3D1790013FEE2 /* CellBackgroundSelected.png in Resources */,

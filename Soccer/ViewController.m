@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
+#import "GameOverViewController.h"
 
 @implementation ViewController
 
@@ -48,6 +49,13 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"finish_game_segue"]){
+        GameOverViewController *detailViewController = [segue destinationViewController];
+        detailViewController.score = @"3";
+    }
 }
 
 //=======only for test

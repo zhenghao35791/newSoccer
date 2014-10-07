@@ -7,9 +7,9 @@
 @interface MainViewController ()
 @property (nonatomic, weak) IBOutlet UIImageView *sImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *nImageView;
-@property (nonatomic, weak) IBOutlet UIImageView *aImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *jokerImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *aImageView;
 
 @property (nonatomic, weak) IBOutlet UIButton *hostGameButton;
 @property (nonatomic, weak) IBOutlet UIButton *joinGameButton;

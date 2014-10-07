@@ -11,8 +11,8 @@
 @implementation MyScene
     static NSString * const Player1Name = @"Player1";//用这个字符串来标示可移动的node
     static NSString * const Player2Name = @"Player2";
-    //int speed = 115;
-
+int player1Score = 0;
+int player2Score = 0;
 
 - (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
@@ -33,7 +33,7 @@
         
         //adding soccer
         _soccer = [SKSpriteNode spriteNodeWithImageNamed:@"soccer"];
-        _soccer.position = CGPointMake(screenWidth/2+15, _soccer.size.height/2+380);
+        _soccer.position = CGPointMake(screenWidth/2, screenHeight/2);
         [self addChild:_soccer];
         
         //loading players
@@ -48,30 +48,26 @@
         
         // contact area of soccer
         _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius: _soccer.frame.size.width/2];
-        _soccer.physicsBody.dynamic = NO;
         _soccer.physicsBody.categoryBitMask = soccerCategory;//which category it belogs to
-        _soccer.physicsBody.contactTestBitMask = player1Category|player2Category;//which category it contact with
-        _soccer.physicsBody.collisionBitMask = player1Category|player2Category;
-        _soccer.physicsBody.velocity = self.physicsBody.velocity;
+        _soccer.physicsBody.contactTestBitMask = player1Category|player2Category; //which category it contact with
+        
         
         // contact area of player1
         _player1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player1.size];
-        //_player1.physicsBody.dynamic = NO;
-        _player1.physicsBody.categoryBitMask = player1Category;//which category it belogs to
-        _player1.physicsBody.contactTestBitMask = soccerCategory;//which category it contact with
-        _player1.physicsBody.collisionBitMask = soccerCategory;
+        _player1.physicsBody.categoryBitMask = player1Category;
+        _player1.physicsBody.contactTestBitMask = soccerCategory;
+        
         
         // contact area of player2
         _player2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player2.size];
-        //_player2.physicsBody.dynamic = NO; only can detect collision without this line
-        _player2.physicsBody.categoryBitMask = player2Category;//which category it belogs to
-        _player2.physicsBody.contactTestBitMask = soccerCategory;//which category it contact with
-        _player2.physicsBody.collisionBitMask = soccerCategory;
+        _player2.physicsBody.categoryBitMask = player2Category;
+        _player2.physicsBody.contactTestBitMask = soccerCategory;
+        
         
         //adding propeller
         _propeller = [SKSpriteNode spriteNodeWithImageNamed:@"PROPELLER 1"];
         _propeller.scale = 0.2;
-        _propeller.position = CGPointMake(screenWidth/2, _player1.size.height+10);
+        _propeller.position = CGPointMake(screenWidth/2-100, screenHeight-60);
         SKTexture *propeller1 = [SKTexture textureWithImageNamed:@"PROPELLER 1"];
         SKTexture *propeller2 = [SKTexture textureWithImageNamed:@"PROPELLER 2"];
         SKAction *spin = [SKAction animateWithTextures:@[propeller1,propeller2] timePerFrame:0.1];
@@ -99,8 +95,8 @@
 		_selectedNode = touchedNode;
 		//3
 		if([[touchedNode name] isEqualToString:Player1Name]||[[touchedNode name] isEqualToString:Player2Name]) {
-//			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
-//			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
+			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
+			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
 		}
 	}
 }
@@ -111,26 +107,22 @@ float degToRad(float degree) {
 
 - (CGPoint)boundLayerPos:(CGPoint)newPos {
     CGSize winSize = self.size;
+
     CGPoint retval = newPos;
     retval.x = MIN(retval.x, 0);
     retval.x = MAX(retval.x, -[_background size].width+ winSize.width);
     retval.y = [self position].y;
     return retval;
 }
-
 - (void)panForTranslation:(CGPoint)translation {
     CGPoint position = [_selectedNode position];
     if([[_selectedNode name] isEqualToString:Player1Name]) {
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player1.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
-        NSLog(@"translation.x: %f",translation.x);
-        NSLog(@"speed.x: %f",_player1.physicsBody.velocity.dx);
     }
     if([[_selectedNode name] isEqualToString:Player2Name]) {
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player2.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
-        NSLog(@"translation.x: %f",translation.x);
-        NSLog(@"speed.x: %f",_player2.physicsBody.velocity.dx);
     }
 }
 
@@ -143,40 +135,61 @@ float degToRad(float degree) {
 }
 
 - (void)update:(NSTimeInterval)currentTime{
-    CGPoint newPosition3 = CGPointMake(_player1.position.x, _player1.position.y);
-    CGPoint newPosition4 = CGPointMake(_player2.position.x, _player2.position.y);
-    CGPoint newPosition5 = CGPointMake(_soccer.position.x, _soccer.position.y);
+    CGPoint newPositionPlayer1 = CGPointMake(_player1.position.x, _player1.position.y);
+    CGPoint newPositionPlayer2 = CGPointMake(_player2.position.x, _player2.position.y);
+    CGPoint newPositionSoccer = CGPointMake(_soccer.position.x, _soccer.position.y);
     currentMaxX = screenWidth - _player1.size.width/2;
     currentMaxY = screenHeight - _player1.size.height/2;
-    if (newPosition3.x>currentMaxX) {
-        newPosition3.x = currentMaxX;
+    if (newPositionPlayer1.x > currentMaxX) {
+        newPositionPlayer1.x = currentMaxX;
     }
-    if (newPosition3.y>currentMaxY) {
-        newPosition3.y = currentMaxY;
+    if (newPositionPlayer1.y > currentMaxY) {
+        newPositionPlayer1.y = currentMaxY;
     }
-    if (newPosition4.x>currentMaxX) {
-        newPosition4.x = currentMaxX;
+    if (newPositionPlayer2.x > currentMaxX) {
+        newPositionPlayer2.x = currentMaxX;
     }
-    if (newPosition4.y>currentMaxY) {
-        newPosition4.y = currentMaxY;
+    if (newPositionPlayer2.y > currentMaxY) {
+        newPositionPlayer2.y = currentMaxY;
     }
-    if (newPosition5.x>currentMaxX) {
-        newPosition5.x = currentMaxX;
+    if (newPositionSoccer.x > currentMaxX) {
+        newPositionSoccer.x = currentMaxX;
     }
-    if (newPosition5.y>currentMaxY) {
-        newPosition5.y = currentMaxY;
+    if (newPositionSoccer.y > currentMaxY) {
+        newPositionSoccer.y = currentMaxY;
     }
-    _player1.position = newPosition3;
-    _player2.position = newPosition4;
-    _soccer.position = newPosition5;
     
-    static int maxSpeed = 10;
-    float speed = sqrt(_soccer.physicsBody.velocity.dx*_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
-    if (speed > maxSpeed) {
-        _soccer.physicsBody.linearDamping = 0.4f;
-    } else {
-        _soccer.physicsBody.linearDamping = 0.0f;
+    if (newPositionPlayer1.x < _player1.size.width) {
+        newPositionPlayer1.x = _player1.size.width;
     }
+    if (newPositionPlayer1.y < _player1.size.height) {
+        newPositionPlayer1.y = _player1.size.height;
+    }
+    if (newPositionPlayer2.x < _player2.size.width) {
+        newPositionPlayer2.x = _player2.size.width;
+    }
+    if (newPositionPlayer2.y < _player2.size.height) {
+        newPositionPlayer2.y = _player2.size.height;
+    }
+    if (newPositionSoccer.x < _soccer.size.width) {
+        newPositionSoccer.x = _soccer.size.width;
+    }
+    if (newPositionSoccer.y < _soccer.size.height) {
+        newPositionSoccer.y = _soccer.size.height;
+    }
+    
+    
+    _player1.position = newPositionPlayer1;
+    _player2.position = newPositionPlayer2;
+    _soccer.position = newPositionSoccer;
+    
+//    static int maxSpeed = 10;
+//    float speed = sqrt(_soccer.physicsBody.velocity.dx*_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
+//    if (speed > maxSpeed) {
+//        _soccer.physicsBody.linearDamping = 0.4f;
+//    } else {
+//        _soccer.physicsBody.linearDamping = 0.0f;
+//    }
 }
 
 
@@ -199,8 +212,7 @@ float degToRad(float degree) {
     
     
     
-    // 1
-    NSLog(@"collison");
+    //NSLog(@"collison");
     SKPhysicsBody *firstBody, *secondBody;
     if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
     {
@@ -212,19 +224,53 @@ float degToRad(float degree) {
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-    // 2
-    NSLog(@"%d",firstBody.categoryBitMask);
+   // NSLog(@"%d",firstBody.categoryBitMask);
     if ((firstBody.categoryBitMask!=soccerCategory))//firstbody isnt soccer
     {
-        SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;//soccer1??
-        //soccer1.physicsBody.friction = 1000;//摩擦
-        soccer1.physicsBody.velocity = firstBody.velocity;//速度
-        
+        SKNode *soccer1 = (contact.bodyA.categoryBitMask & soccerCategory) ? contact.bodyA.node : contact.bodyB.node;
+        soccer1.physicsBody.velocity = firstBody.velocity;
         soccer1.physicsBody.velocity = CGVectorMake(soccer1.physicsBody.velocity.dx*10,soccer1.physicsBody.velocity.dy*10);
         
         CGPoint newPosition = CGPointMake(_soccer.position.x + soccer1.physicsBody.velocity.dx, _soccer.position.y + soccer1.physicsBody.velocity.dy);
+        
+//        NSLog(@"soccer positionx: %f",_soccer.position.x);
+//        NSLog(@"soccer positiony: %f",_soccer.position.y);
+//        NSLog(@"soccer width,height: %f,%f",screenWidth,screenHeight);
+        
+        if (newPosition.x > screenWidth - _soccer.size.width) {
+            newPosition.x = screenWidth - _soccer.size.width;
+        }
+        if (newPosition.y > screenHeight - _soccer.size.height) {
+            newPosition.y = screenHeight - _soccer.size.height;
+        }
+        if (newPosition.x < _soccer.size.width) {
+            newPosition.x = _soccer.size.width;
+        }
+        if (newPosition.y < _soccer.size.height) {
+            newPosition.y = _soccer.size.height;
+        }
+        if (newPosition.x > screenWidth-_soccer.size.width) {
+            newPosition.x = screenWidth-_soccer.size.width;
+        }
+        if (newPosition.y > screenHeight - _soccer.size.height) {
+            newPosition.y = screenHeight - _soccer.size.height;
+        }
+        if (newPosition.x > screenWidth/2-100 && newPosition.x < screenWidth/2+100 && newPosition.y > screenHeight-60) {
+            NSLog(@"score!!!!!!!!!!!!!!!");
+            if (firstBody.categoryBitMask == 1) {
+                player1Score++;
+                NSLog(@"player1 score and he has scored : %d",player1Score);
+            }
+            if (firstBody.categoryBitMask == 2) {
+                player2Score++;
+                NSLog(@"player1 score and he has scored : %d",player2Score);
+            }
+            newPosition = CGPointMake(screenWidth/2, screenHeight/2);
+        }
+        
+        
       [_soccer runAction:[SKAction moveTo:newPosition duration:1]];
-        NSLog(@"soccer speed.y: %f",soccer1.physicsBody.velocity.dy);
+        NSLog(@"soccer speed: %f,%f",soccer1.physicsBody.velocity.dx,soccer1.physicsBody.velocity.dy);
     }
 }
 

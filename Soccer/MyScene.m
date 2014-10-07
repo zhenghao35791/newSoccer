@@ -33,7 +33,7 @@
         
         //adding soccer
         _soccer = [SKSpriteNode spriteNodeWithImageNamed:@"soccer"];
-        _soccer.position = CGPointMake(screenWidth/2, _soccer.size.height/2);
+        _soccer.position = CGPointMake(screenWidth/2, screenHeight/2);
         [self addChild:_soccer];
         
         //loading players

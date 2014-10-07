@@ -69,6 +69,7 @@
 		1B3CA7D419E3ADE200633083 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		1B3CA7D619E3B69A00633083 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		1B3CA7D719E3B69A00633083 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		1BE1A9A319E3C368006339F8 /* SystemSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemSettings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +147,7 @@
 				1B3CA7D419E3ADE200633083 /* GameOverViewController.m */,
 				1B3CA7D619E3B69A00633083 /* HomePageViewController.h */,
 				1B3CA7D719E3B69A00633083 /* HomePageViewController.m */,
+				1BE1A9A319E3C368006339F8 /* SystemSettings.h */,
 			);
 			path = Soccer;
 			sourceTree = "<group>";

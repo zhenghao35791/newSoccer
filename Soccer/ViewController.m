@@ -50,4 +50,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+//=======only for test
+
+
+
+- (IBAction)go2Result:(id)sender {
+    //finish_game_segue
+    [self performSegueWithIdentifier:@"finish_game_segue" sender:self];//page nivagation
+}
 @end

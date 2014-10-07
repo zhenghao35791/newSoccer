@@ -1,18 +1,18 @@
 //
-//  GameOverViewController.m
+//  HomePageViewController.m
 //  Soccer
 //
 //  Created by Hongnan Yang on 2014-10-7.
 //  Copyright (c) 2014年 hao. All rights reserved.
 //
 
-#import "GameOverViewController.h"
+#import "HomePageViewController.h"
 
-@interface GameOverViewController ()
+@interface HomePageViewController ()
 
 @end
 
-@implementation GameOverViewController
+@implementation HomePageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,11 +34,8 @@
 }
 */
 
-- (IBAction)go2HomePage:(id)sender {
-    [self performSegueWithIdentifier:@"back_2_home_segue" sender:self];//page nivagation
-}
-
-- (IBAction)TryAgain:(id)sender {
-     [self performSegueWithIdentifier:@"try_again_segue" sender:self];//page nivagation
+- (IBAction)singlePlayerGame:(id)sender {
+    
+    [self performSegueWithIdentifier:@"single_player_segue" sender:self];//page nivagation
 }
 @end

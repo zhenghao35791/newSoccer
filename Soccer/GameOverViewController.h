@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameOverViewController : UIViewController
+@interface GameOverViewController : UIViewController <UITextFieldDelegate>{
 
+    __weak IBOutlet UITextView *resultRank;
+    __weak IBOutlet UITextView *resultScore;
+}
+- (IBAction)go2HomePage:(id)sender;
+- (IBAction)TryAgain:(id)sender;
+
+
+
+@property (strong, nonatomic) NSString *score;
+@property (strong, nonatomic) NSString *rank;
 @end

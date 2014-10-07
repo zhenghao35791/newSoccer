@@ -25,6 +25,7 @@
 		18178AE319C9A3510061831B /* SoccerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18178AE219C9A3510061831B /* SoccerTests.m */; };
 		18178B0919C9BFB50061831B /* GragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18178B0819C9BFB50061831B /* GragView.m */; };
 		1B3CA7CC19E3792000633083 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1B3CA7CB19E3792000633083 /* background.jpeg */; };
+		1B3CA7D519E3ADE200633083 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D419E3ADE200633083 /* GameOverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		18178B0719C9BFB50061831B /* GragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GragView.h; sourceTree = "<group>"; };
 		18178B0819C9BFB50061831B /* GragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GragView.m; sourceTree = "<group>"; };
 		1B3CA7CB19E3792000633083 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpeg; path = Images.xcassets/background.imageset/background.jpeg; sourceTree = "<group>"; };
+		1B3CA7D319E3ADE200633083 /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		1B3CA7D419E3ADE200633083 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				1B3CA7CB19E3792000633083 /* background.jpeg */,
 				18178ACF19C9A3510061831B /* Images.xcassets */,
 				18178AB919C9A3510061831B /* Supporting Files */,
+				1B3CA7D319E3ADE200633083 /* GameOverViewController.h */,
+				1B3CA7D419E3ADE200633083 /* GameOverViewController.m */,
 			);
 			path = Soccer;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3CA7D519E3ADE200633083 /* GameOverViewController.m in Sources */,
 				18178ACC19C9A3510061831B /* MyScene.m in Sources */,
 				18178AC919C9A3510061831B /* ViewController.m in Sources */,
 				18178AC319C9A3510061831B /* AppDelegate.m in Sources */,

@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //NSString *currentUser = [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"];
+    NSMutableDictionary *jsonDataPreferences = [[NSMutableDictionary alloc] init];
+    //jsonDataPreferences = [self getPreferencesBy:currentUser];
 }
 
 - (void)didReceiveMemoryWarning {

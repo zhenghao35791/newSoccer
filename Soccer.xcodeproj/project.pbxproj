@@ -24,6 +24,7 @@
 		18178AE119C9A3510061831B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18178ADF19C9A3510061831B /* InfoPlist.strings */; };
 		18178AE319C9A3510061831B /* SoccerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18178AE219C9A3510061831B /* SoccerTests.m */; };
 		18178B0919C9BFB50061831B /* GragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18178B0819C9BFB50061831B /* GragView.m */; };
+		1B3CA7CC19E3792000633083 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1B3CA7CB19E3792000633083 /* background.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		18178AE219C9A3510061831B /* SoccerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoccerTests.m; sourceTree = "<group>"; };
 		18178B0719C9BFB50061831B /* GragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GragView.h; sourceTree = "<group>"; };
 		18178B0819C9BFB50061831B /* GragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GragView.m; sourceTree = "<group>"; };
+		1B3CA7CB19E3792000633083 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpeg; path = Images.xcassets/background.imageset/background.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				18178AC819C9A3510061831B /* ViewController.m */,
 				18178ACA19C9A3510061831B /* MyScene.h */,
 				18178ACB19C9A3510061831B /* MyScene.m */,
+				1B3CA7CB19E3792000633083 /* background.jpeg */,
 				18178ACF19C9A3510061831B /* Images.xcassets */,
 				18178AB919C9A3510061831B /* Supporting Files */,
 			);
@@ -245,6 +248,7 @@
 				18178ABD19C9A3510061831B /* InfoPlist.strings in Resources */,
 				18178AD019C9A3510061831B /* Images.xcassets in Resources */,
 				18178AC619C9A3510061831B /* Main.storyboard in Resources */,
+				1B3CA7CC19E3792000633083 /* background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,7 +33,7 @@
         
         //adding soccer
         _soccer = [SKSpriteNode spriteNodeWithImageNamed:@"soccer"];
-        _soccer.position = CGPointMake(screenWidth/2+15, _soccer.size.height/2+380);
+        _soccer.position = CGPointMake(screenWidth/2, _soccer.size.height/2);
         [self addChild:_soccer];
         
         //loading players
@@ -111,13 +111,13 @@ float degToRad(float degree) {
 
 - (CGPoint)boundLayerPos:(CGPoint)newPos {
     CGSize winSize = self.size;
+
     CGPoint retval = newPos;
     retval.x = MIN(retval.x, 0);
     retval.x = MAX(retval.x, -[_background size].width+ winSize.width);
     retval.y = [self position].y;
     return retval;
 }
-
 - (void)panForTranslation:(CGPoint)translation {
     CGPoint position = [_selectedNode position];
     if([[_selectedNode name] isEqualToString:Player1Name]) {

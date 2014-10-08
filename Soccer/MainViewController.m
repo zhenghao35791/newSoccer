@@ -215,6 +215,18 @@
     [alertView show];
 }
 
+- (void)showNoNetworkAlert
+{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:NSLocalizedString(@"No Network", @"No network alert title")
+                              message:NSLocalizedString(@"To use multiplayer, please enable Bluetooth or Wi-Fi in your device's Settings.", @"No network alert message")
+                              delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"OK", @"Button: OK")
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -234,6 +246,14 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)hostViewController:(HostViewController *)controller didEndSessionWithReason:(QuitReason)reason
+{
+    if(reason == QuitReasonNoNetwork)
+    {
+        [self showNoNetworkAlert];
+    }
+}
 - (void)joinViewControllerDidCancel:(JoinViewController *)controller
 {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -246,6 +266,12 @@
         [self dismissViewControllerAnimated:NO completion:^
          {
              [self showDisconnectedAlert];
+         }];
+    }else if(reason == QuitReasonNoNetwork)
+    {
+        [self dismissViewControllerAnimated:NO completion:^
+         {
+             [self showNoNetworkAlert];
          }];
     }
 }

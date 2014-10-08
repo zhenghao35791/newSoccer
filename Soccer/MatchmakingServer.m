@@ -17,7 +17,6 @@ typedef enum
 
 @interface MatchmakingServer ()
 
-
 @end
 
 
@@ -132,6 +131,22 @@ typedef enum
     }
 }
 
+- (void)endSession
+{
+    NSAssert(_serverstate != ServerStateIdle, @"Wrong state");
+    
+    _serverstate = ServerStateIdle;
+    
+    [_session disconnectFromAllPeers];
+    _session.available = NO;
+    _session.delegate = nil;
+    _session = nil;
+    
+    _connectedClients = nil;
+    
+    [self.delegate matchmakingServerSessionDidEnd:self];
+}
+
 - (void)session:(GKSession *)session connectionWithPeerFailed:(NSString *)peerID withError:(NSError *)error
 {
 #ifdef DEBUG
@@ -144,6 +159,16 @@ typedef enum
 #ifdef DEBUG
     NSLog(@"MatchmakingServer: session failed %@", error);
 #endif
+    
+    if([[error domain] isEqualToString:GKSessionErrorDomain])
+    {
+        if([error code] == GKSessionCannotEnableError)
+        {
+            [self.delegate matchmakingServerNoNetwork:self];
+            [self endSession];
+        }
+    }
+    
 }
 
 - (NSUInteger)connectedClientCount
@@ -159,5 +184,7 @@ typedef enum
 {
     return [_session displayNameForPeer:peerID];
 }
+
+
 
 @end

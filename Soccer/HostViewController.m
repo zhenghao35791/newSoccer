@@ -76,6 +76,8 @@
 
 - (IBAction)exitAction:(id)sender
 {
+    _quitReason = QuitReasonServerQuit;
+    [_matchmakingServer endSession];
     [self.delegate hostViewControllerDidCancel:self];
 }
 
@@ -137,5 +139,19 @@
 {
     NSLog(@"connected");
     [self.tableView reloadData];
+}
+
+-(void)matchmakingServerNoNetwork:(MatchmakingServer *)server
+{
+    _matchmakingServer.delegate = nil;
+    _matchmakingServer = nil;
+    [self.tableView reloadData];
+    [self.delegate hostViewController:self didEndSessionWithReason:_quitReason];
+    
+}
+
+-(void)matchmakingServerSessionDidEnd:(MatchmakingServer *)server
+{
+    _quitReason = QuitReasonNoNetwork;
 }
 @end

@@ -173,5 +173,9 @@
     [self.tableView reloadData];
     [self.delegate joinViewController:self didDisconnectWithReason:_quitReason];
 }
+- (void)matchmakingClientNoNetwork:(MatchmakingClient *)client
+{
+    _quitReason = QuitReasonNoNetwork;
+}
 
 @end

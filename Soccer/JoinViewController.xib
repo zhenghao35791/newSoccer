@@ -55,6 +55,10 @@
 						<double key="IBUIInsetFor6xAndEarlier.left">0.0</double>
 						<double key="IBUIInsetFor6xAndEarlier.right">-768</double>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">HostGame.png</string>
+						</object>
 					</object>
 					<object class="IBUILabel" id="934135518">
 						<reference key="NSNextResponder" ref="110657377"/>
@@ -828,6 +832,7 @@
 			<string key="ExitButton.png">{28, 28}</string>
 			<string key="ExitButtonPressed.png">{28, 28}</string>
 			<string key="Felt.png">{480, 320}</string>
+			<string key="HostGame.png">{768, 1024}</string>
 			<string key="TableViewBorder.png">{458, 150}</string>
 			<string key="TextField.png">{240, 32}</string>
 		</dictionary>

@@ -19,6 +19,7 @@
 @implementation MainViewController
 {
     BOOL _buttonsEnabled;
+    BOOL _performAnimations;
 }
 
 @synthesize sImageView = _sImageView;
@@ -34,6 +35,15 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
+    {
+        _performAnimations = YES;
+    }
+    return self;
 }
 
 - (IBAction)hostGameAction:(id)sender
@@ -232,14 +242,16 @@
 {
     [super viewWillAppear:animated];
     
-    [self prepareForIntroAnimation];
+    if(_performAnimations)
+        [self prepareForIntroAnimation];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [self performIntroAnimation];
+    if(_performAnimations)
+        [self performIntroAnimation];
 }
 
 - (void)hostViewControllerDidCancel:(HostViewController *)controller
@@ -274,6 +286,24 @@
              [self showNoNetworkAlert];
          }];
     }
+}
+
+- (void) joinViewController:(JoinViewController *)controller startGameWithSession:(GKSession *)session playerName:(NSString *)name server:(NSString *)peerID
+{
+    _performAnimations = NO;
+    [self dismissViewControllerAnimated:NO completion:^
+     {
+         _performAnimations = YES;
+         [self startGameWithBlock:^(Game game)
+          {
+              [game startClientGameWithSession:session playerName:name server:peerID];
+          }];
+     }];
+}
+
+- (void)startGameWithBlock:(void (^)(Game *))block
+{
+    GameViewController *gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
 }
 
 

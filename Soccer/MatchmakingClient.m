@@ -91,6 +91,7 @@ ClientState;
             if (_clientState == ClientStateConnecting && [peerID isEqualToString:_serverPeerID])
             {
                 [self disconnectFromServer];
+                [self.delegate matchmakingClient:self didConnectToServer:peerID];
             }
             
             break;

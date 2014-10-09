@@ -28,6 +28,7 @@
 		1B3CA7D819E3B69A00633083 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D719E3B69A00633083 /* HomePageViewController.m */; };
 		6B7B641019E51BD4001CA53B /* EndGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640E19E51BD4001CA53B /* EndGame.png */; };
 		6B7B641119E51BD4001CA53B /* HostGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640F19E51BD4001CA53B /* HostGame.png */; };
+		6B7B641319E53173001CA53B /* OnlineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B641219E53173001CA53B /* OnlineGame.m */; };
 		6BE4177919E3D04C0013FEE2 /* MatchmakingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4177619E3D04C0013FEE2 /* MatchmakingServer.m */; };
 		6BE4177A19E3D04C0013FEE2 /* MatchmakingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4177819E3D04C0013FEE2 /* MatchmakingClient.m */; };
 		6BE4178019E3D0630013FEE2 /* UIFont+SnapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4177D19E3D0630013FEE2 /* UIFont+SnapAdditions.m */; };
@@ -128,6 +129,8 @@
 		1B3CA7D719E3B69A00633083 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		6B7B640E19E51BD4001CA53B /* EndGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EndGame.png; sourceTree = "<group>"; };
 		6B7B640F19E51BD4001CA53B /* HostGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HostGame.png; sourceTree = "<group>"; };
+		6B7B641219E53173001CA53B /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
+		6B7B641419E5317B001CA53B /* OnlineGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
 		6BE4177519E3D04C0013FEE2 /* MatchmakingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingServer.h; sourceTree = "<group>"; };
 		6BE4177619E3D04C0013FEE2 /* MatchmakingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingServer.m; sourceTree = "<group>"; };
 		6BE4177719E3D04C0013FEE2 /* MatchmakingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingClient.h; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 		18178AB819C9A3510061831B /* Soccer */ = {
 			isa = PBXGroup;
 			children = (
+				6B7B641419E5317B001CA53B /* OnlineGame.h */,
+				6B7B641219E53173001CA53B /* OnlineGame.m */,
 				6BE417E719E3D1C30013FEE2 /* Other Sources */,
 				6BE4179219E3D1670013FEE2 /* Images */,
 				6BE4178219E3D0690013FEE2 /* View Controllers */,
@@ -574,6 +579,7 @@
 				6BE4177A19E3D04C0013FEE2 /* MatchmakingClient.m in Sources */,
 				1B3CA7D819E3B69A00633083 /* HomePageViewController.m in Sources */,
 				6BE417EE19E3D7AF0013FEE2 /* ViewController1.m in Sources */,
+				6B7B641319E53173001CA53B /* OnlineGame.m in Sources */,
 				18178ABF19C9A3510061831B /* main.m in Sources */,
 				18178B0919C9BFB50061831B /* GragView.m in Sources */,
 				6BE417EA19E3D1CC0013FEE2 /* PeerCell.m in Sources */,

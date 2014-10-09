@@ -26,6 +26,7 @@
 		1B3CA7CC19E3792000633083 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1B3CA7CB19E3792000633083 /* background.jpeg */; };
 		1B3CA7D519E3ADE200633083 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D419E3ADE200633083 /* GameOverViewController.m */; };
 		1B3CA7D819E3B69A00633083 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D719E3B69A00633083 /* HomePageViewController.m */; };
+		6B147F6219E6340200134829 /* PeerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B147F6119E6340200134829 /* PeerCell.m */; };
 		6B7B641019E51BD4001CA53B /* EndGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640E19E51BD4001CA53B /* EndGame.png */; };
 		6B7B641119E51BD4001CA53B /* HostGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640F19E51BD4001CA53B /* HostGame.png */; };
 		6B7B641319E53173001CA53B /* OnlineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B641219E53173001CA53B /* OnlineGame.m */; };
@@ -81,7 +82,6 @@
 		6BE417E319E3D1790013FEE2 /* TextField.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417BA19E3D1790013FEE2 /* TextField.png */; };
 		6BE417E419E3D1790013FEE2 /* TextField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417BB19E3D1790013FEE2 /* TextField@2x.png */; };
 		6BE417E619E3D19C0013FEE2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE417E519E3D19C0013FEE2 /* GameKit.framework */; };
-		6BE417EA19E3D1CC0013FEE2 /* PeerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE417E919E3D1CC0013FEE2 /* PeerCell.m */; };
 		6BE417EE19E3D7AF0013FEE2 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */; };
 		6BE417EF19E3D7AF0013FEE2 /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */; };
 		6BE417F119E3E0390013FEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417F019E3E0390013FEE2 /* Main.storyboard */; };
@@ -127,6 +127,8 @@
 		1B3CA7D419E3ADE200633083 /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		1B3CA7D619E3B69A00633083 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
 		1B3CA7D719E3B69A00633083 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		6B147F6019E6340200134829 /* PeerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerCell.h; sourceTree = "<group>"; };
+		6B147F6119E6340200134829 /* PeerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerCell.m; sourceTree = "<group>"; };
 		6B7B640E19E51BD4001CA53B /* EndGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EndGame.png; sourceTree = "<group>"; };
 		6B7B640F19E51BD4001CA53B /* HostGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HostGame.png; sourceTree = "<group>"; };
 		6B7B641219E53173001CA53B /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
@@ -190,8 +192,6 @@
 		6BE417BA19E3D1790013FEE2 /* TextField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextField.png; sourceTree = "<group>"; };
 		6BE417BB19E3D1790013FEE2 /* TextField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TextField@2x.png"; sourceTree = "<group>"; };
 		6BE417E519E3D19C0013FEE2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		6BE417E819E3D1CC0013FEE2 /* PeerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeerCell.h; path = ../../StarterCode1/PeerCell.h; sourceTree = "<group>"; };
-		6BE417E919E3D1CC0013FEE2 /* PeerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeerCell.m; path = ../../StarterCode1/PeerCell.m; sourceTree = "<group>"; };
 		6BE417EB19E3D7AF0013FEE2 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController1.xib; sourceTree = "<group>"; };
@@ -411,8 +411,8 @@
 		6BE417E719E3D1C30013FEE2 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6BE417E819E3D1CC0013FEE2 /* PeerCell.h */,
-				6BE417E919E3D1CC0013FEE2 /* PeerCell.m */,
+				6B147F6019E6340200134829 /* PeerCell.h */,
+				6B147F6119E6340200134829 /* PeerCell.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -567,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BE4179119E3D0750013FEE2 /* JoinViewController.m in Sources */,
+				6B147F6219E6340200134829 /* PeerCell.m in Sources */,
 				1B3CA7D519E3ADE200633083 /* GameOverViewController.m in Sources */,
 				6BE4177919E3D04C0013FEE2 /* MatchmakingServer.m in Sources */,
 				6BE4178119E3D0630013FEE2 /* UIButton+SnapAdditions.m in Sources */,
@@ -582,7 +583,6 @@
 				6B7B641319E53173001CA53B /* OnlineGame.m in Sources */,
 				18178ABF19C9A3510061831B /* main.m in Sources */,
 				18178B0919C9BFB50061831B /* GragView.m in Sources */,
-				6BE417EA19E3D1CC0013FEE2 /* PeerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

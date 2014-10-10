@@ -32,6 +32,8 @@ static const uint8_t soccerCategory = 3;
 @property SKSpriteNode *player1;
 @property SKSpriteNode *player2;
 @property SKSpriteNode *soccer;
+@property SKSpriteNode *ai1;
+@property SKSpriteNode *ai2;
 @property SKSpriteNode *enemyplayer;
 @property SKSpriteNode *propeller;
 @property SKSpriteNode *selectedNode;

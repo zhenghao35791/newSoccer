@@ -95,8 +95,8 @@ int onlinePlayer2Score = 0;
 		_selectedNode = touchedNode;
 		//3
 		if([[touchedNode name] isEqualToString:Player1Name]||[[touchedNode name] isEqualToString:Player2Name]) {
-			SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
-			[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
+			//SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
+			//[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
 		}
 	}
 }

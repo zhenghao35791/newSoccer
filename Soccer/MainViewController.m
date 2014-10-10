@@ -290,21 +290,21 @@
 
 - (void) joinViewController:(JoinViewController *)controller startGameWithSession:(GKSession *)session playerName:(NSString *)name server:(NSString *)peerID
 {
-    _performAnimations = NO;
-    [self dismissViewControllerAnimated:NO completion:^
-     {
-         _performAnimations = YES;
-         [self startGameWithBlock:^(Game game)
-          {
-              [game startClientGameWithSession:session playerName:name server:peerID];
-          }];
-     }];
+//    _performAnimations = NO;
+//    [self dismissViewControllerAnimated:NO completion:^
+//     {
+//         _performAnimations = YES;
+//         [self startGameWithBlock:^(Game game)
+//          {
+//              [game startClientGameWithSession:session playerName:name server:peerID];
+//          }];
+//     }];
 }
 
-- (void)startGameWithBlock:(void (^)(Game *))block
-{
-    GameViewController *gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
-}
+//- (void)startGameWithBlock:(void (^)(Game *))block
+//{
+////    GameViewController *gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+//}
 
 
 @end

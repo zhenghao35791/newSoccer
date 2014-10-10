@@ -1,18 +1,18 @@
 //
-//  MyScene.m
+//  OnlineGame.m
 //  Soccer
 //
 //  Created by rayna on 14-9-17.
 //  Copyright (c) 2014年 hao. All rights reserved.
 //
 
-#import "MyScene.h"
+#import "OnlineGame.h"
 
-@implementation MyScene
+@implementation OnlineGame
     static NSString * const Player1Name = @"Player1";//用这个字符串来标示可移动的node
     static NSString * const Player2Name = @"Player2";
-int player1Score = 0;
-int player2Score = 0;
+int onlinePlayer1Score = 0;
+int onlinePlayer2Score = 0;
 
 - (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
@@ -101,7 +101,8 @@ int player2Score = 0;
 	}
 }
 
-float degToRad(float degree) {
+- (float) degToRad:(float)degree
+{
 	return degree / 180.0f * M_PI;
 }//由于Sprite Kit是利用弧度来做旋转效果的，所以上面这个方法将角度转换为弧度。
 
@@ -258,12 +259,12 @@ float degToRad(float degree) {
         if (newPosition.x > screenWidth/2-100 && newPosition.x < screenWidth/2+100 && newPosition.y > screenHeight-60) {
             NSLog(@"score!!!!!!!!!!!!!!!");
             if (firstBody.categoryBitMask == 1) {
-                player1Score++;
-                NSLog(@"player1 score and he has scored : %d",player1Score);
+                onlinePlayer1Score++;
+                NSLog(@"player1 score and he has scored : %d",onlinePlayer1Score);
             }
             if (firstBody.categoryBitMask == 2) {
-                player2Score++;
-                NSLog(@"player1 score and he has scored : %d",player2Score);
+                onlinePlayer2Score++;
+                NSLog(@"player1 score and he has scored : %d",onlinePlayer2Score);
             }
             newPosition = CGPointMake(screenWidth/2, screenHeight/2);
         }

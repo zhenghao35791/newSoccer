@@ -129,10 +129,10 @@
 		1B3CA7D719E3B69A00633083 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
 		6B147F6019E6340200134829 /* PeerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerCell.h; sourceTree = "<group>"; };
 		6B147F6119E6340200134829 /* PeerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerCell.m; sourceTree = "<group>"; };
+		6B147F6319E638F100134829 /* OnlineGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
 		6B7B640E19E51BD4001CA53B /* EndGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EndGame.png; sourceTree = "<group>"; };
 		6B7B640F19E51BD4001CA53B /* HostGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HostGame.png; sourceTree = "<group>"; };
 		6B7B641219E53173001CA53B /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
-		6B7B641419E5317B001CA53B /* OnlineGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
 		6BE4177519E3D04C0013FEE2 /* MatchmakingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingServer.h; sourceTree = "<group>"; };
 		6BE4177619E3D04C0013FEE2 /* MatchmakingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingServer.m; sourceTree = "<group>"; };
 		6BE4177719E3D04C0013FEE2 /* MatchmakingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingClient.h; sourceTree = "<group>"; };
@@ -260,8 +260,8 @@
 		18178AB819C9A3510061831B /* Soccer */ = {
 			isa = PBXGroup;
 			children = (
-				6B7B641419E5317B001CA53B /* OnlineGame.h */,
 				6B7B641219E53173001CA53B /* OnlineGame.m */,
+				6B147F6319E638F100134829 /* OnlineGame.h */,
 				6BE417E719E3D1C30013FEE2 /* Other Sources */,
 				6BE4179219E3D1670013FEE2 /* Images */,
 				6BE4178219E3D0690013FEE2 /* View Controllers */,

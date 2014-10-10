@@ -1,11 +1,3 @@
-//
-//  MyScene.h
-//  Soccer
-//
-
-//  Copyright (c) 2014年 hao. All rights reserved.
-//
-
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
 //static const uint32_t soccerCategory = 0x1 << 0;
@@ -15,7 +7,7 @@ static const uint8_t player1Category = 1;
 static const uint8_t player2Category = 2;
 static const uint8_t soccerCategory = 3;
 
-@interface MyScene : SKScene<UIAccelerometerDelegate, SKPhysicsContactDelegate>{
+@interface OnlineGame : SKScene<UIAccelerometerDelegate, SKPhysicsContactDelegate>{
     CGRect screenRect;
     CGFloat screenHeight;
     CGFloat screenWidth;

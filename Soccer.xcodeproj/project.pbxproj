@@ -27,6 +27,7 @@
 		1B3CA7D519E3ADE200633083 /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D419E3ADE200633083 /* GameOverViewController.m */; };
 		1B3CA7D819E3B69A00633083 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CA7D719E3B69A00633083 /* HomePageViewController.m */; };
 		6B147F6219E6340200134829 /* PeerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B147F6119E6340200134829 /* PeerCell.m */; };
+		6B147F6719E763C500134829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B147F6619E763C500134829 /* Main.storyboard */; };
 		6B7B641019E51BD4001CA53B /* EndGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640E19E51BD4001CA53B /* EndGame.png */; };
 		6B7B641119E51BD4001CA53B /* HostGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B640F19E51BD4001CA53B /* HostGame.png */; };
 		6B7B641319E53173001CA53B /* OnlineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B641219E53173001CA53B /* OnlineGame.m */; };
@@ -84,7 +85,6 @@
 		6BE417E619E3D19C0013FEE2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE417E519E3D19C0013FEE2 /* GameKit.framework */; };
 		6BE417EE19E3D7AF0013FEE2 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */; };
 		6BE417EF19E3D7AF0013FEE2 /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */; };
-		6BE417F119E3E0390013FEE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417F019E3E0390013FEE2 /* Main.storyboard */; };
 		6BE417F319E3EBF60013FEE2 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BE417F219E3EBF60013FEE2 /* background1.png */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +130,7 @@
 		6B147F6019E6340200134829 /* PeerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerCell.h; sourceTree = "<group>"; };
 		6B147F6119E6340200134829 /* PeerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerCell.m; sourceTree = "<group>"; };
 		6B147F6319E638F100134829 /* OnlineGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
+		6B147F6619E763C500134829 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6B7B640E19E51BD4001CA53B /* EndGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EndGame.png; sourceTree = "<group>"; };
 		6B7B640F19E51BD4001CA53B /* HostGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HostGame.png; sourceTree = "<group>"; };
 		6B7B641219E53173001CA53B /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
@@ -195,7 +196,6 @@
 		6BE417EB19E3D7AF0013FEE2 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		6BE417EC19E3D7AF0013FEE2 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		6BE417ED19E3D7AF0013FEE2 /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController1.xib; sourceTree = "<group>"; };
-		6BE417F019E3E0390013FEE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../Dropbox/comp90018/Main.storyboard; sourceTree = "<group>"; };
 		6BE417F219E3EBF60013FEE2 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,7 +338,7 @@
 		6BE4178219E3D0690013FEE2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6BE417F019E3E0390013FEE2 /* Main.storyboard */,
+				6B147F6619E763C500134829 /* Main.storyboard */,
 				18178AC719C9A3510061831B /* ViewController.h */,
 				18178AC819C9A3510061831B /* ViewController.m */,
 				6BE4178319E3D0750013FEE2 /* JoinViewController.xib */,
@@ -503,8 +503,8 @@
 				6B7B641019E51BD4001CA53B /* EndGame.png in Resources */,
 				6BE417C619E3D1790013FEE2 /* Default.png in Resources */,
 				6BE417D319E3D1790013FEE2 /* Icon-Small@2x.png in Resources */,
+				6B147F6719E763C500134829 /* Main.storyboard in Resources */,
 				6BE417D419E3D1790013FEE2 /* Icon.png in Resources */,
-				6BE417F119E3E0390013FEE2 /* Main.storyboard in Resources */,
 				6BE417CF19E3D1790013FEE2 /* Icon-72@2x.png in Resources */,
 				6BE417DB19E3D1790013FEE2 /* Logo N.png in Resources */,
 				18178AD019C9A3510061831B /* Images.xcassets in Resources */,

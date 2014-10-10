@@ -373,6 +373,8 @@ int player2Score = 0;
                     }
                     newPosition = CGPointMake(screenWidth/2, screenHeight/2);
                     [_soccer runAction:[SKAction moveTo:newPosition duration:1]];
+                    [_player1 runAction:[SKAction moveTo:CGPointMake(screenWidth/2, _player1.size.height/2+15) duration:1]];
+                    [_player2 runAction:[SKAction moveTo:CGPointMake(screenWidth/2, _player2.size.height/2+150) duration:1]];
                 }
                 i+=1;
                 NSLog(@"%d", i);
